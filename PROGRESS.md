@@ -4,7 +4,7 @@ Read this first in every new chat, then continue with the next unchecked step.
 
 ## Phases
 - [x] Phase 0: Setup (repo, client, server, /health)
-- [~] Phase 0b: MongoDB, Groq and Gemini keys done and tested (in server/.env). Still to do: Firebase project (Google sign-in) + FIREBASE_* values
+- [x] Phase 0b: MongoDB, Groq, Gemini and Firebase set up and tested (secrets in server/.env, client/.env, server/firebase-service-account.json; all git-ignored)
 - [ ] Phase 1: Ears and mouth (mic, language picker, echo via TTS, typed fallback)
 - [ ] Phase 2: Brain (POST /api/chat, getModel() fallback, prompt v1, validator)
 - [ ] Phase 3: Cart, read-back, confirm, order request  (deadline 20 Oct)
