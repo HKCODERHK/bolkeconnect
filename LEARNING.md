@@ -21,3 +21,10 @@ One section per phase: what was built, why, the concept it shows, and one interv
 - Concepts: public vs secret config, service account (server proves its identity to Firebase), why the server verifies Firebase ID tokens for owner routes.
 - Render note: there is no file on Render, so in Phase 4 the service account JSON will go into an environment variable.
 - Interview sentence: "Owner login uses Firebase Google sign-in; the browser gets a public config, and the server verifies the token with a private service account."
+
+## Phase 1: Ears and mouth
+- Built: `config/languages.js` (one list of languages), `speech/recognition.js` (ASR hook), `speech/synthesis.js` (TTS + barge-in), UI components (mic button, language picker, chat bubbles, typed input). The bot only echoes what it heard; the LLM comes in Phase 2.
+- Concepts: ASR (speech to text) with interim results for live text, TTS (text to speech) with voice selection per language, barge-in (tapping the mic cancels the bot's speech), fallback (typed input when the browser or mic can't be used, text-only when no voice exists), and a health ping so the sleeping Render server wakes before the first question.
+- Why a speech "interface": `recognition.js` and `synthesis.js` are the only files that touch browser speech, so a paid service can replace them without touching the rest.
+- Edge cases handled so far: mic denied, no speech heard, unsupported browser, no voice for a language.
+- Interview sentence: "Speech input and output sit behind a small interface, so I can swap the free browser speech for a paid service without touching the conversation logic."
